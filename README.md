@@ -1,2 +1,2 @@
 # fintech_project_one
-Monash Finch Project 1
+Monash Fintech Project 1
