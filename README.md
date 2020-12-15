@@ -1,3 +1,4 @@
+
 #  FinTech Project 1
 
 ## Project title
@@ -45,4 +46,3 @@ Modules:
 **Challenge:**
 * API connection and data download (based on user input) - Stock lat/long and other relevant data
 * Mapbox - show the stock location geographically.  Make bubbles larger for larger weightings or larger returns
-
