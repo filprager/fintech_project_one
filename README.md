@@ -7,7 +7,7 @@
 
 ## Project description/outline
 
-User input:
+User inputs:
 
 - Initial investment
 - Stock/crypto tickers to compare (max 10 via free text field)
