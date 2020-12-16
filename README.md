@@ -55,3 +55,9 @@ Modules:
 
 - API connection and data download (based on user input) - Stock lat/long and other relevant data
 - Mapbox - show the stock location geographically. Make bubbles larger for larger weightings or larger returns
+
+## Work distribution
+- Make the interface for the app - Raj
+- Get the data via APIs - Mark
+- Process the data
+- Visualize the data
