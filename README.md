@@ -29,7 +29,7 @@ User inputs:
 - Start Date (date range)
 - End Date (date range) : Default Today
 - *Challenge - Enable/disable auto rebalance*
-- *ADD crypto tickers *
+- *ADD crypto tickers * API available
 
 
 ### Schema
