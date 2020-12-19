@@ -2,7 +2,7 @@
 
 ## Project title
 
-- Investor Analysis Tool (‘sleek name here’)
+- Financial Analysis Tool - FAT (Delorean)
 - My Portfolio
 
 ## OVERVIEW - WORKFLOW
@@ -12,27 +12,49 @@
 3. backward view - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
    *combined historical return/ cumulative return across all portfolios*
 4. single forward view - Monte carlo on stocks
-   *monte carlo projection for each portfoli ie: Portfolio1, Portfolio2, Portfolio3*
-5. Calculate and output projection of Total return and Average Annual Return for the inital investment
+   *monte carlo projection for each portfoli ie: Portfolio1, Portfolio2, Portfolio3*  
+5. COMPARE - portfolio to the 4 main INDICES
+6. Calculate and output projection of Total return and Average Annual Return for the inital investment
 
 
 ## Project description/outline
 
 User inputs:
-- create portfolio (button)
+- Initial investment
 - Max 5 stocks -> compute
   - Historical graph for each stock
   - joint graph of 5 stocks
-
-- Initial investment
-- Stock/crypto tickers to compare (max 10 via free text field)
 - Initial weight of each ticker (incl. sum check)
-- Buy time
-- Sell time
-- Challenge - Enable/disable auto rebalance
+- create portfolio (button)
+- Start Date (date range)
+- End Date (date range) : Default Today
+- *Challenge - Enable/disable auto rebalance*
+- *ADD crypto tickers *
+
+
+### Schema
+portfolio_1{
+  ticker{
+  "MSFT" : 0.2,
+  "AAPL": 0.2,
+  "TSLA": 0.2,
+  "GOOG": 0.2,
+  "BRK":  0.2  
+  },
+  date_range{
+    start_date: 11/12/2019,
+    end_data: 11/12/2020
+  }
+}
+
+### STOCK DATA: 
+- Alpaca
+- S&P 500
+- NASDAQ 100
+- DOW JONES
+- Russell 2000
 
 App output:
-
 - Past performance of the portfolio vs. the market
 - Possible future best/worse performance of the \* portfolio vs. the market (Monte Carlo based)
 - Risk level of the portfolio
