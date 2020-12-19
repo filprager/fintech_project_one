@@ -98,3 +98,7 @@ Modules:
 - Get the data via APIs (get_data.py) - Mark
 - Process the data (process_data.py) - Ivan
 - Visualize the data (visualize_data.py) - Fil
+
+## Installation requirement
+- yfinance  
+`$ conda install -c ranaroussi yfinance`

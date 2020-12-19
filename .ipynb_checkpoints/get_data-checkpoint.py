@@ -1,65 +1,15 @@
 # Import libraries needed
-from dotenv import load_dotenv
-import os
 import pandas as pd
-import alpaca_trade_api
+import yfinance as yf
 
-# Create a function to get stock data for given tickers, buy time and sell time
-def get_data_stock(tickers, 
-             buy_time=pd.Timestamp("2020-01-01", tz="America/New_York").isoformat(),
-             sell_time=None
-            ):
+# This function takes all tickers (including stocks, cryptocurrencies and indexes), and returns a pandas dataframe of their historical OHLC prices
+def get_data(ticker1, ticker2, start_date, end_date):
+    # Put all tickers in a string seperated by space
+    tickers = f'{ticker1} {ticker2}'
     
-    # Load .env file
-    load_dotenv()
-
-    # Set Alpaca API key and secret
-    alpaca_api_key = os.getenv("ALPACA_API_KEY")
-    alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
-
-    # Create the Alpaca API object
-    alpaca = alpaca_trade_api.REST(alpaca_api_key, alpaca_secret_key)
-
-    # Set the timeframe that stock data will be based on
-    timeframe = "1D"
-
-    # Get the data from Alpaca API
-    df = alpaca.get_barset(
-        tickers,
-        timeframe=timeframe,
-        start = buy_time,
-        end = sell_time
-    ).df
+    # Get data from Yahoo Finance and assign it to a pandas dataframe
+    df = yf.download(tickers, start=start_date, end=end_date)
     
-    # Return the data
+    # Return the pandas dataframe
     return df    
-
-# Create a function to get data of the market (S&P 500)
-def get_data_market(buy_time=pd.Timestamp("2020-01-01", tz="America/New_York").isoformat(),
-                    sell_time=None
-                   ):
-    
-    # Load .env file
-    load_dotenv()
-
-    # Set Alpaca API key and secret
-    alpaca_api_key = os.getenv("ALPACA_API_KEY")
-    alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
-
-    # Create the Alpaca API object
-    alpaca = alpaca_trade_api.REST(alpaca_api_key, alpaca_secret_key)
-
-    # Set the timeframe that stock data will be based on
-    timeframe = "1D"
-
-    # Get the data from Alpaca API
-    df = alpaca.get_barset(
-        # I haven't figured out how to get S&P 500 index data, I'm using SPY as an alternative for now
-        'SPY',
-        timeframe=timeframe,
-        start = buy_time,
-        end = sell_time
-    ).df
-    
-    # Return the data
-    return df  
+ 
