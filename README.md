@@ -5,9 +5,24 @@
 - Investor Analysis Tool (‘sleek name here’)
 - My Portfolio
 
+## OVERVIEW - WORKFLOW
+1. create 1 portfolio (For now can expand later)
+2. each portfolio has 1-5 stocks with manual weighting
+3. Initial investment - default $1000
+3. backward view - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
+   *combined historical return/ cumulative return across all portfolios*
+4. single forward view - Monte carlo on stocks
+   *monte carlo projection for each portfoli ie: Portfolio1, Portfolio2, Portfolio3*
+5. Calculate and output projection of Total return and Average Annual Return for the inital investment
+
+
 ## Project description/outline
 
 User inputs:
+- create portfolio (button)
+- Max 5 stocks -> compute
+  - Historical graph for each stock
+  - joint graph of 5 stocks
 
 - Initial investment
 - Stock/crypto tickers to compare (max 10 via free text field)
