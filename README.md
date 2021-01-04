@@ -1,4 +1,4 @@
-# FinTech Project 1
+# FinTech Project 1.0.0
 
 ## Project title
 
