@@ -7,5 +7,5 @@ def make_plot1(df):
     return plot1
 
 def make_plot2(df):
-    plot2 = df.hvplot.bar()
+    plot2 = df.hvplot.area()
     return plot2
