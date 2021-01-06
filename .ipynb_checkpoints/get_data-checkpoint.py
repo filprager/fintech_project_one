@@ -5,12 +5,10 @@ import pandas as pd
 import alpaca_trade_api
 
 # Create a function to get stock data for given tickers, buy time and sell time
-def get_data_stock(ticker1, ticker2, ticker3, ticker4, ticker5, 
+def get_data_stock(tickers, 
                    buy_time=pd.Timestamp("2020-01-01", tz="America/New_York").isoformat(),
                    sell_time=None
                   ):
-    # Make a list of tickers
-    tickers = [ticker1, ticker2, ticker3, ticker4, ticker5]
     
     # Load .env file
     load_dotenv()
