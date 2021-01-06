@@ -8,7 +8,7 @@ from MCForecastTools import MCSimulation
 import json
 
 
-def process_data_cumulative_returns(df, tickers, weights):
+def process_data_cumulative_returns(df, tickers, weights, raw_data_market):
     # Extract all tickers' closing prices from the given dataframe 
     closing_prices = pd.DataFrame()
 
@@ -26,9 +26,24 @@ def process_data_cumulative_returns(df, tickers, weights):
 
     # Convert portfolio's cumulative returns to a pandas dataframe
     cumulative_returns_portfolio_df = pd.DataFrame()
-    cumulative_returns_portfolio_df['Cumulative Returns'] = cumulative_returns_portfolio
+    cumulative_returns_portfolio_df['Portfolio'] = cumulative_returns_portfolio
+    
+    # Calculate all tickers' cumulative returns
+    cumulative_returns_tickers = (1 + daily_returns_tickers).cumprod() - 1
+    
+    # Combine the tickers' cumulative with the portfolio's cumulative return into one DataFrame
+    cumulative_returns_combined = cumulative_returns_tickers
+    cumulative_returns_combined['Portfolio'] = cumulative_returns_portfolio_df
+    
+    # Calculate cumulative return of the marekt i.e. SPY
+    closing_prices_market = raw_data_market['SPY']['close']
+    daily_returns_market = closing_prices_market.pct_change()
+    cumulative_returns_market = (1 + daily_returns_market).cumprod() - 1
+    
+    # Combine the cumulative return of the tickers, portfolio and market
+    cumulative_returns_combined['Market'] = cumulative_returns_market
 
-    return cumulative_returns_portfolio_df
+    return cumulative_returns_combined
 
 
 def process_data_monte_carlo(df, weights):
