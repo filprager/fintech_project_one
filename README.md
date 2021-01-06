@@ -94,7 +94,7 @@ Modules:
 - Mapbox - show the stock location geographically. Make bubbles larger for larger weightings or larger returns
 
 ## Work distribution
-- Make the interface for the app - Raj
-- Get the data via APIs - Mark
-- Process the data
-- Visualize the data
+- Make the interface for the app (main.ipynb, make_interface.py) - Raj
+- Get the data via APIs (get_data.py) - Mark
+- Process the data (process_data.py) - Ivan
+- Visualize the data (visualize_data.py) - Fil
