@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
-class RegistrationForm(FlaskForm):
+class PortfolioForm(FlaskForm):
     username = StringField('Initial Investment', validators=[
                            DataRequired(), Length(min=2, max=20)])
     ticker1 = StringField('Ticker 1', validators=[
@@ -14,7 +14,7 @@ class RegistrationForm(FlaskForm):
         DataRequired(), Length(min=2, max=20)])
     ticker4 = StringField('Ticker 4', validators=[
         DataRequired(), Length(min=2, max=20)])
-    submit = SubmitField('Find Stock')
+    submit = SubmitField('Calculate')
 
 
 class LoginForm(FlaskForm):
