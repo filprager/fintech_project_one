@@ -8,14 +8,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '00e4efeb013b5fc6ce708590b1a4d6a3'
 
 
-@app.route('/')
-@app.route('/about')
-def about():
-
-    return render_template('about.html', title='About')
-
-
-@app.route('/interface', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
+# @app.route('/interface')
 def interface():
     form = PortfolioForm()
     if form.validate_on_submit():
@@ -25,10 +19,15 @@ def interface():
         flash(f'ticker3: {form.ticker3.data}', 'success')
         flash(f'ticker4: {form.ticker4.data}', 'success')
         # createapp
-        # output = create_app('MSFT', 'DIS', 0.5, 0.5)
-        create_app()
+        # create_app()
         return redirect(url_for('about'))
     return render_template('interface.html', title='Ticker', form=form)
+
+
+@app.route('/about')
+def about():
+
+    return render_template('about.html', title='About')
 
 
 @app.route('/login')

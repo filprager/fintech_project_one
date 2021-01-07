@@ -12,10 +12,6 @@ from MCForecastTools import MCSimulation
 # Create a function to generate the app
 
 
-def create_app():
-    # Create a function to generate the app
-
-
 def create_app(ticker1, weight1, ticker2, weight2, ticker3, weight3, ticker4, weight4, ticker5, weight5):
     # Put all valid tickers (i.e. not an empty string) into a list (tickers), and their associated weights into a another list (weights)
     # tickers = []
