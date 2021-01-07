@@ -1,6 +1,6 @@
 import panel as pn
 
-def make_interface(plot1, plot2): #plot3, plot4
+def make_interface(plot1, plot2, plot3, plot4): 
     
 #     welcome_panel = pn.Column(
 #     "# Welcome to DeLorean",
