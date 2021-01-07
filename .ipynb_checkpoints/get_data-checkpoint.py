@@ -6,9 +6,9 @@ import alpaca_trade_api
 
 # Create a function to get stock data for given tickers, buy time and sell time
 def get_data_stock(tickers, 
-             buy_time=pd.Timestamp("2020-01-01", tz="America/New_York").isoformat(),
-             sell_time=None
-            ):
+                   buy_time=pd.Timestamp("2020-01-01", tz="America/New_York").isoformat(),
+                   sell_time=None
+                  ):
     
     # Load .env file
     load_dotenv()
