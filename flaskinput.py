@@ -14,11 +14,11 @@ def interface():
     form = PortfolioForm()
     if form.validate_on_submit():
         flash(f'Inital Investment: {form.username.data}')
-        flash(f'stock: {form.ticker1.data},  weight: {form.weight1.data}')
-        flash(f'stock: {form.ticker2.data},  weight: {form.weight2.data}')
-        flash(f'stock: {form.ticker3.data},  weight: {form.weight3.data}')
-        flash(f'stock: {form.ticker4.data},  weight: {form.weight4.data}')
-        flash(f'stock: {form.ticker5.data},  weight: {form.weight5.data}')
+        flash(f'ticker1: {form.ticker1.data},  weight: {form.weight1.data}')
+        flash(f'ticker2: {form.ticker2.data},  weight: {form.weight2.data}')
+        flash(f'ticker3: {form.ticker3.data},  weight: {form.weight3.data}')
+        flash(f'ticker4: {form.ticker4.data},  weight: {form.weight4.data}')
+        flash(f'ticker5: {form.ticker5.data},  weight: {form.weight5.data}')
         # createapp
         # create_app()
         return redirect(url_for('about'))
