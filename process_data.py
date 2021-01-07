@@ -48,14 +48,42 @@ def process_data_cumulative_returns(df, tickers, weights, raw_data_market):
 
 def process_data_monte_carlo(df, weights):
     # Configuring a Monte Carlo simulation to forecast 10 years cumulative returns
-    monte_carlo_df = MCSimulation(
+    monte_carlo_config = MCSimulation(
         portfolio_data = df,
         weights = weights,
-        num_simulation = 5,
+        num_simulation = 20,
         num_trading_days = 252*10
     )
     
     # Running the Monte Carlo simulation to forecast 10 years cumulative returns
-    #monte_carlo_df = monte_carlo_ten_year.calc_cumulative_return()
+    monte_carlo_df = monte_carlo_config.calc_cumulative_return()
 
     return monte_carlo_df
+
+def process_data_monte_carlo_summary(df, weights):
+    # Configuring a Monte Carlo simulation to forecast 10 years cumulative returns
+    monte_carlo_config = MCSimulation(
+        portfolio_data = df,
+        weights = weights,
+        num_simulation = 20,
+        num_trading_days = 252*10
+    )
+    
+    # Fetch summary statistics from the Monte Carlo simulation results
+    summary_table = monte_carlo_config.summarize_cumulative_return()
+    
+    ## Calculate the expected portfolio return at the 95% lower and upper confidence intervals based on a $1000 initial investment
+    
+    # Set initial investment
+    initial_investment = 1000
+
+    # Use the lower and upper `95%` confidence intervals to calculate the range of the possible outcomes of the initial investment
+    ci_lower = round(summary_table[8]*initial_investment,2)
+    ci_upper = round(summary_table[9]*initial_investment,2)
+
+    # Prepare results for print
+    portfolio_return_summary = (f"There is a 95% chance that an initial investment of ${initial_investment} in the portfolio"
+                                f" over the next 10 years will end within the range of"
+                                f" ${ci_lower} and ${ci_upper}")
+    
+    return portfolio_return_summary
