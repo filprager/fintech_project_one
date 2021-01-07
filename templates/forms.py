@@ -8,10 +8,11 @@ class PortfolioForm(FlaskForm):
                            DataRequired(), Length(min=2, max=20)])
     ticker1 = StringField('Ticker 1', validators=[
         DataRequired(), Length(min=2, max=8)])
-    weight1 = StringField('Ticker 1', validators=[
+    weight1 = StringField('Weight 1', validators=[
         DataRequired(), Length(min=2, max=4)])
     ticker2 = StringField('Ticker 2', validators=[
         DataRequired(), Length(min=2, max=8)])
+    weight2 = StringField('Weight 2')
     ticker3 = StringField('Ticker 3', validators=[
         DataRequired(), Length(min=2, max=4)])
     ticker4 = StringField('Ticker 4', validators=[

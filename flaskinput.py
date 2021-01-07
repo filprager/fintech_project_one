@@ -13,11 +13,11 @@ app.config['SECRET_KEY'] = '00e4efeb013b5fc6ce708590b1a4d6a3'
 def interface():
     form = PortfolioForm()
     if form.validate_on_submit():
-        flash(f'Inital Investment: {form.username.data}!', 'success')
-        flash(f'ticker1: {form.ticker1.data}', 'success')
-        flash(f'ticker2: {form.ticker2.data}', 'success')
-        flash(f'ticker3: {form.ticker3.data}', 'success')
-        flash(f'ticker4: {form.ticker4.data}', 'success')
+        flash(f'Inital Investment: {form.username.data}')
+        flash(f'stock: {form.ticker1.data},  weight: {form.weight1.data}')
+        flash(f'stock: {form.ticker2.data}', 'success')
+        flash(f'stock: {form.ticker3.data}', 'success')
+        flash(f'stock: {form.ticker4.data}', 'success')
         # createapp
         # create_app()
         return redirect(url_for('about'))
