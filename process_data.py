@@ -7,6 +7,50 @@ import alpaca_trade_api as tradeapi
 from MCForecastTools import MCSimulation
 import json
 
+def process_data_daily_returns(df, tickers, weights, raw_data_market):
+    # Extract all tickers' closing prices from the given dataframe 
+    closing_prices = pd.DataFrame()
+
+    for ticker in tickers:
+        closing_prices[ticker] = df[ticker]['close']
+
+    # Calculate all tickers' daily returns
+    daily_returns_tickers = closing_prices.pct_change()
+
+    return daily_returns_tickers
+
+
+def process_data_rolling_std(df, tickers, weights, raw_data_market):
+    # Extract all tickers' closing prices from the given dataframe 
+    closing_prices = pd.DataFrame()
+
+    for ticker in tickers:
+        closing_prices[ticker] = df[ticker]['close']
+
+    # Calculate all tickers' daily returns
+    daily_returns_tickers = closing_prices.pct_change()
+
+    # Calculate the rolling standard deviation for all portfolios using a 21-day window
+    rolling_std_tickers = daily_returns_tickers.rolling(window=21).std()
+    
+    return rolling_std_tickers
+
+
+def process_data_correlation(df, tickers, weights, raw_data_market):
+    # Extract all tickers' closing prices from the given dataframe 
+    closing_prices = pd.DataFrame()
+
+    for ticker in tickers:
+        closing_prices[ticker] = df[ticker]['close']
+
+    # Calculate all tickers' daily returns
+    daily_returns_tickers = closing_prices.pct_change()
+
+    # Calculate the rolling standard deviation for all portfolios using a 21-day window
+    correlation_tickers = daily_returns_tickers.corr()
+    
+    return correlation_tickers
+
 
 def process_data_cumulative_returns(df, tickers, weights, raw_data_market):
     # Extract all tickers' closing prices from the given dataframe 
@@ -46,7 +90,7 @@ def process_data_cumulative_returns(df, tickers, weights, raw_data_market):
     return cumulative_returns_combined
 
 
-def process_data_monte_carlo(df, weights):
+def process_data_monte_carlo_returns(df, weights):
     # Configuring a Monte Carlo simulation to forecast 10 years cumulative returns
     monte_carlo_config = MCSimulation(
         portfolio_data = df,
