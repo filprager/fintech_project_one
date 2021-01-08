@@ -1,7 +1,7 @@
 # Import libraries
 from panel.interact import interact
 
-from create_app import create_app
+from ui_output import create_app
 from flask import Flask, render_template, url_for, flash, redirect
 from templates.forms import PortfolioForm, LoginForm
 app = Flask(__name__)
@@ -24,8 +24,7 @@ def interface():
             f'ticker4: {form.ticker4.data},  weight: {form.weight4.data}', 'success')
         flash(
             f'ticker5: {form.ticker5.data},  weight: {form.weight5.data}', 'success')
-        # createapp
-        # create_app()
+        # ui_output()
         return redirect(url_for('about'))
     return render_template('interface.html', title='Ticker', form=form)
 
