@@ -18,7 +18,7 @@ def make_plot3(df):
     return plot3
 
 def make_plot4(df):
-    plot4 = df.hvplot(title="Monte Carlo Simulation of Cumulative Portfolio Returns over the next 10 years", xlabel="Date", ylabel="Cumulative Return", rot=90, width = 800, height = 600).opts(yformatter="%.0f")
+    plot4 = df.hvplot(title="Monte Carlo Simulation of Cumulative Portfolio Returns over the next 10 years", xlabel="Day", ylabel="Cumulative Return", rot=90, width = 800, height = 600).opts(yformatter="%.0f")
     return plot4
 
 def make_plot5(string):

@@ -51,7 +51,7 @@ def process_data_monte_carlo(df, weights):
     monte_carlo_config = MCSimulation(
         portfolio_data = df,
         weights = weights,
-        num_simulation = 20,
+        num_simulation = 10,
         num_trading_days = 252*10
     )
     
@@ -65,7 +65,7 @@ def process_data_monte_carlo_summary(df, weights):
     monte_carlo_config = MCSimulation(
         portfolio_data = df,
         weights = weights,
-        num_simulation = 20,
+        num_simulation = 10,
         num_trading_days = 252*10
     )
     
