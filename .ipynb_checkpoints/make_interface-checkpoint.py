@@ -1,6 +1,8 @@
 import panel as pn
+from MCForecastTools import MCSimulation
+import json
 
-def make_interface(plot1, plot2, plot3, plot4): #plot3, plot4
+def make_interface(plot1, plot2, plot3, plot4, plot5): 
     
 #     welcome_panel = pn.Column(
 #     "# Welcome to DeLorean",
@@ -17,12 +19,17 @@ def make_interface(plot1, plot2, plot3, plot4): #plot3, plot4
 
 
     # Content for the Past Performance tab
-    past_performance = pn.Column(plot1,
-                                 plot2,
-                                 '## More plots can be placed here')
+    past_performance = pn.Column(
+        plot1,
+        plot2,
+        plot3
+    )
     
     # Content for the Future Performance tab
-    future_performance = pn.Column('## Monte Carlo simulation goes here')
+    future_performance = pn.Column(
+        plot4, 
+        plot5
+    )
 
     tabs = pn.Tabs(
         ('Past Performance', past_performance),
