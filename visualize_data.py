@@ -25,8 +25,8 @@ def make_plot4(df):
 
 # Create functions that generate a plot based on the given data - Future Performance
 
-def make_plot5(df):
-    plot5 = df.hvplot(title="Monte Carlo Simulation of Cumulative Portfolio Returns over the next 10 years", xlabel="Trading Days", ylabel="Cumulative Return", rot=90, width = 800, height = 600, shared_axes=False).opts(yformatter="%.0f")
+def make_plot5(df, mc_years):
+    plot5 = df.hvplot(title=f"Monte Carlo Simulation of Cumulative Portfolio Returns over the next {mc_years} years", xlabel="Trading Days", ylabel="Cumulative Return", rot=90, width = 800, height = 600, shared_axes=False).opts(yformatter="%.0f")
     return plot5
 
 def make_plot6(string):

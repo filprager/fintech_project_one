@@ -90,7 +90,7 @@ def process_data_cumulative_returns(df, tickers, weights, raw_data_market):
     return cumulative_returns_combined
 
 
-def process_data_monte_carlo_returns(df, weights, mc_sims, mc_years):
+def process_data_monte_carlo_config(df, weights, mc_sims, mc_years):
     # Configuring a Monte Carlo simulation to forecast x years cumulative returns
     monte_carlo_config = MCSimulation(
         portfolio_data = df,
@@ -99,22 +99,17 @@ def process_data_monte_carlo_returns(df, weights, mc_sims, mc_years):
         num_trading_days = 252*mc_years
     )
     
-    # Running the Monte Carlo simulation to forecast x years cumulative returns
-    monte_carlo_df = monte_carlo_config.calc_cumulative_return()
+    return monte_carlo_config
+
+def process_data_monte_carlo_returns(mc_config):
+  # Running the Monte Carlo simulation to forecast x years cumulative returns
+    monte_carlo_df = mc_config.calc_cumulative_return()
 
     return monte_carlo_df
 
-def process_data_monte_carlo_summary(df, weights, mc_sims, mc_years, initial_investment):
-    # Configuring a Monte Carlo simulation to forecast x years cumulative returns
-    monte_carlo_config = MCSimulation(
-        portfolio_data = df,
-        weights = weights,
-        num_simulation = mc_sims,
-        num_trading_days = 252*mc_years
-    )
-    
+def process_data_monte_carlo_summary(mc_config, initial_investment, mc_years):
     # Fetch summary statistics from the Monte Carlo simulation results
-    summary_table = monte_carlo_config.summarize_cumulative_return()
+    summary_table = mc_config.summarize_cumulative_return()
     
     ## Calculate the expected portfolio return at the 95% lower and upper confidence intervals based on an initial investment
 
