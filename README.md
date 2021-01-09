@@ -1,15 +1,13 @@
-# FinTech Project 1.0.0
+# FinTech Project 1
 
-## Project title
+# DeLorean - Financial Analysis Tool
 
-- Financial Analysis Tool - FAT (Delorean)
-- My Portfolio
+## View Past and Projected Future Returns for Stocks, with Risk Analysis
 
-## Installation and APP Startup
 
-### Python App
+### Main APP
 
-#### Installations
+#### Installation
 
 pip install datetime
 pip unstall pytz
@@ -24,11 +22,7 @@ conda install -c conda-forge nodejs -y
 conda install -c pyviz holoviz -y
 conda install -c plotly plotly -y
 
-#### Start app by executing
-
-main.ipyd
-
-#### Files needed for the app
+#### Required Files
 
 main.ipyd
 get_data.py
@@ -37,53 +31,20 @@ visualize_data.py
 make_interface.py
 MCForecastTools.py
 
-### Flasks UI App
+#### Start Up
 
-#### Installation
+Start app by executing 'main.ipyd'
 
-pip install flask
-pip install flask_wtf
-pip install wtforms
-pip install wtforms.validators
+#### WORKFLOW
 
-#### Start app by executing
+1. Enter Start Date
+2. Enter End Date
+3. Add 1-5 Stocks with manual portfolio weights (must sum to 1)
+4. Press Run Interact button
 
-python flaskinput.py
+Note - Monte Carlo analysis processing takes 3-5 seconds - please wait after pressing Run Interact button
 
-#### Files needed for the app
-
-flaskinput.py
-ui_output.py
-/assets
-/templates
-
-## OVERVIEW - WORKFLOW
-
-1. Select Start Date
-2. Select End Date
-3. each portfolio has 1-5 stocks with manual weighting
-4. Initial investment - default $1000
-5. Run Interact Button
-6. Output Past Performance - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
-   _combined historical return/ cumulative return across all portfolios_
-7. Output future Performance - Monte carlo on stocks
-   _monte carlo projection for each stock_
-8. Output Risk Analysis
-
-## Project description/outline
-
-User inputs:
-
-- Initial investment
-- Max 5 stocks -> compute
-  - Historical graph for each stock
-  - joint graph of 5 stocks
-- Initial weight of each ticker (incl. sum check)
-- Run Interact (button)
-- Start Date (date range)
-- End Date (date range) : Default Today
-
-### Schema
+#### Example Schema
 
 portfolio_1{
 ticker{
@@ -99,32 +60,46 @@ end_data: 11/12/2020
 }
 }
 
-### STOCK DATA:
+#### Data used
 
-- Alpaca
-- S&P 500
-- NASDAQ 100
-- DOW JONES
-
-## Datasets to be used
-
-- Alpaca
-- Yahoo Finance
+- User inputs
+- Alpaca API
 - Monte Carlo
 
-## APP Output
+#### APP Output
 
-in a TAB Layout
+In a TAB layout:
 
-- Past performance of the selected stocks - Daily Returns, Cumulative Returns
-- Future performance of the selected stocks - using monte Carlo, Cumulative returns
-- Risk Analysis - Box Plot, Correlation graph, Rolling Std of Daily Returns
+- Past Performance of selected stocks, combined portfolio and the market (S&P500) - Various Daily Returns, Cumulative Returns
+- Future Performance of the combined portfolio - Monte Carlo simulation
+- Risk Analysis of selected stocks - Box plot, Correlation graph, Rolling Standard Deviation of Daily Returns over a 21 day window
 
-## NEXT Step
+### Future Improvements
 
-1. Refine ticker cound and weights
-2. Migrate to a NEW API
+1. Refine ticker counts and granularity weights
+2. Migrate to a new finance API
 3. Update Monte Carlo py
 4. Create and compare multiple custom portfolios
-5. Intergration with exchanges to offer 'Buy Now' functionality
-6. Improved GUI for Web and Mobile - hooking up the Front-End UI to Python for processing.
+5. Integration with exchanges to offer 'Buy Now' functionality for selected stocks
+6. Improved GUI for Web and Mobile - connect front-end UI to Python for processing
+
+
+### Flask UI App (Work in Progress)
+
+#### Installation
+
+pip install flask
+pip install flask_wtf
+pip install wtforms
+pip install wtforms.validators
+
+#### Start Up
+
+Start app by executing 'flaskinput.py'
+
+#### Required Files
+
+flaskinput.py
+ui_output.py
+/assets
+/templates

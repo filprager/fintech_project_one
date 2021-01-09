@@ -1,100 +1,105 @@
 # FinTech Project 1
 
-## Project title
+# DeLorean - Financial Analysis Tool
 
-- Financial Analysis Tool - FAT (Delorean)
-- My Portfolio
-
-## OVERVIEW - WORKFLOW
-1. create 1 portfolio (For now can expand later)
-2. each portfolio has 1-5 stocks with manual weighting
-3. Initial investment - default $1000
-3. backward view - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
-   *combined historical return/ cumulative return across all portfolios*
-4. single forward view - Monte carlo on stocks
-   *monte carlo projection for each portfoli ie: Portfolio1, Portfolio2, Portfolio3*  
-5. COMPARE - portfolio to the 4 main INDICES
-6. Calculate and output projection of Total return and Average Annual Return for the inital investment
+## View Past and Projected Future Returns for Stocks, with Risk Analysis
 
 
-## Project description/outline
+### Main APP
 
-User inputs:
-- Initial investment
-- Max 5 stocks -> compute
-  - Historical graph for each stock
-  - joint graph of 5 stocks
-- Initial weight of each ticker (incl. sum check)
-- create portfolio (button)
-- Start Date (date range)
-- End Date (date range) : Default Today
-- *Challenge - Enable/disable auto rebalance*
-- *ADD crypto tickers * API available
+#### Installation
 
+pip install datetime
+pip unstall pytz
+pip install python-dotenv
+pip install alpaca-trade-api
+pip install package_name
+conda install panel
+conda install panda
+conda install numpy  
+ conda install -c anaconda nb_conda -y
+conda install -c conda-forge nodejs -y
+conda install -c pyviz holoviz -y
+conda install -c plotly plotly -y
 
-### Schema
+#### Required Files
+
+main.ipyd
+get_data.py
+process_data.py
+visualize_data.py
+make_interface.py
+MCForecastTools.py
+
+#### Start Up
+
+Start app by executing 'main.ipyd'
+
+#### WORKFLOW
+
+1. Enter Start Date
+2. Enter End Date
+3. Add 1-5 Stocks with manual portfolio weights (must sum to 1)
+4. Press Run Interact button
+
+Note - Monte Carlo analysis processing takes 3-5 seconds - please wait after pressing Run Interact button
+
+#### Example Schema
+
 portfolio_1{
-  ticker{
-  "MSFT" : 0.2,
-  "AAPL": 0.2,
-  "TSLA": 0.2,
-  "GOOG": 0.2,
-  "BRK":  0.2  
-  },
-  date_range{
-    start_date: 11/12/2019,
-    end_data: 11/12/2020
-  }
+ticker{
+"MSFT" : 0.2,
+"AAPL": 0.2,
+"TSLA": 0.2,
+"GOOG": 0.2,
+"BRK": 0.2  
+ },
+date_range{
+start_date: 11/12/2019,
+end_data: 11/12/2020
+}
 }
 
-### STOCK DATA: 
-- Alpaca
-- S&P 500
-- NASDAQ 100
-- DOW JONES
-- Russell 2000
+#### Data used
 
-App output:
-- Past performance of the portfolio vs. the market
-- Possible future best/worse performance of the \* portfolio vs. the market (Monte Carlo based)
-- Risk level of the portfolio
-- A pie chart of the initial weights
-- A pie chart of the weights in the end
-- Industry distribution of the portfolio
-
-## Research questions to answer
-
-- How good is the portfolio?
-- Challenge - Does auto rebalance improve the performance?
-
-## Datasets to be used
-
-- Alpaca
-- Yahoo Finance
+- User inputs
+- Alpaca API
 - Monte Carlo
-- Google Maps API (if there is any)
 
-## Rough breakdown of tasks
+#### APP Output
 
-Modules:
+In a TAB layout:
 
-- User input UI - to use Javascript or Python ??? (need to check)
-- API connection and data download (based on user input) - Stock price
-- API connection and data download (based on user input) - Crypto price
-- Data cleaning
-- Monte Carlo analysis
-- Dashboards to show
-  - High Risk - high returns
-  - edium risk
-  - Low risk - low volatility
+- Past Performance of selected stocks, combined portfolio and the market (S&P500) - Various Daily Returns, Cumulative Returns
+- Future Performance of the combined portfolio - Monte Carlo simulation
+- Risk Analysis of selected stocks - Box plot, Correlation graph, Rolling Standard Deviation of Daily Returns over a 21 day window
 
-**Challenge:**
+### Future Improvements
 
-- API connection and data download (based on user input) - Stock lat/long and other relevant data
-- Mapbox - show the stock location geographically. Make bubbles larger for larger weightings or larger returns
+1. Refine ticker counts and granularity weights
+2. Migrate to a new finance API
+3. Update Monte Carlo py
+4. Create and compare multiple custom portfolios
+5. Integration with exchanges to offer 'Buy Now' functionality for selected stocks
+6. Improved GUI for Web and Mobile - connect front-end UI to Python for processing
 
-## Work distribution
-- Make the interface for the app - Raj
-- Get the data via APIs - Mark
-- Process the data
-- Visualize the data
+
+### Flask UI App (Work in Progress)
+
+#### Installation
+
+pip install flask
+pip install flask_wtf
+pip install wtforms
+pip install wtforms.validators
+
+#### Start Up
+
+Start app by executing 'flaskinput.py'
+
+#### Required Files
+
+flaskinput.py
+ui_output.py
+/assets
+/templates
