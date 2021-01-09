@@ -11,7 +11,7 @@ def make_plot1(df):
     return plot1
 
 def make_plot2(df):
-    plot2 = df.hvplot.area(title="Historical Cumulative Returns of Individual Tickers, Portfolio and Market (S&P500) - Area", xlabel="Date", ylabel="Cumulative Return", rot=90, width = 800, height = 400, shared_axes=False).opts(yformatter="%.1f")
+    plot2 = df.hvplot.area(title="Historical Cumulative Returns of Individual Tickers, Portfolio and Market (S&P500) - Stacked Area", xlabel="Date", ylabel="Cumulative Return", rot=90, width = 800, height = 400, shared_axes=False).opts(yformatter="%.1f")
     return plot2
 
 def make_plot3(df):
@@ -26,7 +26,7 @@ def make_plot4(df):
 # Create functions that generate a plot based on the given data - Future Performance
 
 def make_plot5(df):
-    plot5 = df.hvplot(title="Monte Carlo Simulation of Cumulative Portfolio Returns over the next 10 years", xlabel="Day", ylabel="Cumulative Return", rot=90, width = 800, height = 600, shared_axes=False).opts(yformatter="%.0f")
+    plot5 = df.hvplot(title="Monte Carlo Simulation of Cumulative Portfolio Returns over the next 10 years", xlabel="Trading Days", ylabel="Cumulative Return", rot=90, width = 800, height = 600, shared_axes=False).opts(yformatter="%.0f")
     return plot5
 
 def make_plot6(string):
