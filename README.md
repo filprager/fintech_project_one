@@ -9,7 +9,8 @@
 
 ### Python App
 
-<u>Installations</u>
+#### Installations
+
 pip install datetime
 pip unstall pytz
 pip install python-dotenv
@@ -23,10 +24,12 @@ conda install -c conda-forge nodejs -y
 conda install -c pyviz holoviz -y
 conda install -c plotly plotly -y
 
-<u>Start app by executing</u>
+#### Start app by executing
+
 main.ipyd
 
-<u>Files needed for the app</u>
+#### Files needed for the app
+
 main.ipyd
 get_data.py
 process_data.py
@@ -36,16 +39,19 @@ MCForecastTools.py
 
 ### Flasks UI App
 
-<u>Installation</u>
+#### Installation
+
 pip install flask
 pip install flask_wtf
 pip install wtforms
 pip install wtforms.validators
 
-<u>Start app by executing</u>
+#### Start app by executing
+
 python flaskinput.py
 
-<u>Files needed for the app</u>
+#### Files needed for the app
+
 flaskinput.py
 ui_output.py
 /assets
@@ -53,15 +59,16 @@ ui_output.py
 
 ## OVERVIEW - WORKFLOW
 
-1. create 1 portfolio (For now can expand later)
-2. each portfolio has 1-5 stocks with manual weighting
-3. Initial investment - default $1000
-4. backward view - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
+1. Select Start Date
+2. Select End Date
+3. each portfolio has 1-5 stocks with manual weighting
+4. Initial investment - default $1000
+5. Run Interact Button
+6. Output Past Performance - historical price chart per stock (overlayed view), and combined historical return/ cumulative return across all stocks
    _combined historical return/ cumulative return across all portfolios_
-5. single forward view - Monte carlo on stocks
-   _monte carlo projection for each portfoli ie: Portfolio1, Portfolio2, Portfolio3_
-6. COMPARE - portfolio to the 4 main INDICES
-7. Calculate and output projection of Total return and Average Annual Return for the inital investment
+7. Output future Performance - Monte carlo on stocks
+   _monte carlo projection for each stock_
+8. Output Risk Analysis
 
 ## Project description/outline
 
@@ -72,11 +79,9 @@ User inputs:
   - Historical graph for each stock
   - joint graph of 5 stocks
 - Initial weight of each ticker (incl. sum check)
-- create portfolio (button)
+- Run Interact (button)
 - Start Date (date range)
 - End Date (date range) : Default Today
-- _Challenge - Enable/disable auto rebalance_
-- _ADD crypto tickers _ API available
 
 ### Schema
 
@@ -100,51 +105,26 @@ end_data: 11/12/2020
 - S&P 500
 - NASDAQ 100
 - DOW JONES
-- Russell 2000
-
-App output:
-
-- Past performance of the portfolio vs. the market
-- Possible future best/worse performance of the \* portfolio vs. the market (Monte Carlo based)
-- Risk level of the portfolio
-- A pie chart of the initial weights
-- A pie chart of the weights in the end
-- Industry distribution of the portfolio
-
-## Research questions to answer
-
-- How good is the portfolio?
-- Challenge - Does auto rebalance improve the performance?
 
 ## Datasets to be used
 
 - Alpaca
 - Yahoo Finance
 - Monte Carlo
-- Google Maps API (if there is any)
 
-## Rough breakdown of tasks
+## APP Output
 
-Modules:
+in a TAB Layout
 
-- User input UI - to use Javascript or Python ??? (need to check)
-- API connection and data download (based on user input) - Stock price
-- API connection and data download (based on user input) - Crypto price
-- Data cleaning
-- Monte Carlo analysis
-- Dashboards to show
-  - High Risk - high returns
-  - edium risk
-  - Low risk - low volatility
+- Past performance of the selected stocks - Daily Returns, Cumulative Returns
+- Future performance of the selected stocks - using monte Carlo, Cumulative returns
+- Risk Analysis - Box Plot, Correlation graph, Rolling Std of Daily Returns
 
-**Challenge:**
+## NEXT Step
 
-- API connection and data download (based on user input) - Stock lat/long and other relevant data
-- Mapbox - show the stock location geographically. Make bubbles larger for larger weightings or larger returns
-
-## Work distribution
-
-- Make the interface for the app (main.ipynb, make_interface.py) - Raj
-- Get the data via APIs (get_data.py) - Mark
-- Process the data (process_data.py) - Ivan
-- Visualize the data (visualize_data.py) - Fil
+1. Refine ticker cound and weights
+2. Migrate to a NEW API
+3. Update Monte Carlo py
+4. Create and compare multiple custom portfolios
+5. Intergration with exchanges to offer 'Buy Now' functionality
+6. Improved GUI for Web and Mobile - hooking up the Front-End UI to Python for processing.
