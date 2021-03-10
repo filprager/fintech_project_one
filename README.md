@@ -1,7 +1,7 @@
 ![Image](image/readme_background.png)
 
 # DeLorean - Financial Analysis Tool
-View Past and Projected Future Returns for Stocks, with Risk Analysis
+### View Past and Projected Future Returns for Stocks, with Risk Analysis
 
 ## How to run the app
 Open and run all cells in `main.ipynb`
