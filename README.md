@@ -1,4 +1,4 @@
-# FinTech Project 1
+![Image](image/readme_background.png)
 
 # DeLorean - Financial Analysis Tool
 
