@@ -1,7 +1,8 @@
+# DeLorean - Financial Analysis Tool
 ![Image](image/readme_background.png)
 
-# DeLorean - Financial Analysis Tool
-**View Past and Projected Future Returns for Stocks, with Risk Analysis**
+## Introduction
+DeLorean is an interactive web app that helps users analyse their investment portfolio. It can show past and predicted future returns for selected stocks along with risk analysis.
 
 ## How to Run the App
 Open and run all cells in `main.ipynb`
